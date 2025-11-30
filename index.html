@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Celebration Reactor</title>
+
+    <!-- Main styles -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+
+    <!-- Futuristic font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Orbitron:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Bubble Cursor Layer -->
+    <div id="bubble-container"></div>
+
+    <!-- Fireworks Layer -->
+    <div id="fireworks"></div>
+
+    <!-- Top bar -->
+    <header class="top-bar glass">
+      <div class="brand">
+        <div class="brand-icon">
+          <!-- Logo Placeholder -->
+          <img
+            src="Emoji-Logos/emoji.logo.jpg"
+            alt="Logo"
+            onerror="this.style.display='none'; this.parentElement.innerText='⚡'"
+          />
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">CELEBRATION HUB</span> <br />
+          <span class="brand-sub">Neon Wishes Engine</span>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="nav-wrap">
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="#" class="section-trigger" data-target="birthdayScreen"
+            >Birthday</a
+          >
+          <a href="#" class="section-trigger" data-target="anniversaryScreen"
+            >Anniversary</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="heroSection" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">LIGHTCHAIN WISHES</h1>
+        <p class="hero-subtitle">
+          Trigger futuristic birthday & anniversary surprises from your personal
+          neon chamber.
+        </p>
+        <div class="hero-pill">
+          LIVE
+          <span class="live"> ·</span>
+          INTERACTIVE · PERSONALIZED
+        </div>
+      </div>
+
+      <div class="hero-token">
+        <div class="token-ring">
+          <div class="token-inner">
+            <span class="token-icon">⚡</span>
+          </div>
+        </div>
+        <div class="token-base"></div>
+        <div class="token-shadow"></div>
+      </div>
+    </section>
+
+    <!-- SCREEN AREA (Dynamic content region) -->
+    <div id="screenArea">
+      <!-- HOME SCREEN (Menu) -->
+      <main id="homeSection" class="screen active card-grid">
+        <!-- Birthday Trigger -->
+        <button class="box section-trigger" data-target="birthdayScreen">
+          <div class="box-header">Birthday Reactor</div>
+          <div class="box-body">
+            <p>
+              Launch a neon birthday surprise with name, age and glowing wishes.
+            </p>
+          </div>
+          <div class="box-tag">START</div>
+        </button>
+
+        <!-- Anniversary Trigger -->
+        <button class="box section-trigger" data-target="anniversaryScreen">
+          <div class="box-header">Anniversary Chamber</div>
+          <div class="box-body">
+            <p>
+              Celebrate years together with a cinematic, AI-style wish screen.
+            </p>
+          </div>
+          <div class="box-tag">START</div>
+        </button>
+
+        <!-- Coming Soon -->
+        <div class="box disabled">
+          <div class="box-header">More Portals</div>
+          <div class="box-body">
+            <p>
+              New celebration types are booting up. Stay tuned for the next
+              upgrade.
+            </p>
+          </div>
+          <div class="box-tag">SOON</div>
+        </div>
+      </main>
+
+      <!-- BIRTHDAY FORM -->
+      <section id="birthdayScreen" class="screen glass">
+        <button class="close-btn" data-close>✖</button>
+        <h2>Birthday</h2>
+        <p class="screen-sub">
+          Enter details to generate a neon birthday wish.
+        </p>
+
+        <form id="bForm" class="form-grid">
+          <label for="bName">Name</label>
+          <input id="bName" type="text" required placeholder="Ex: Rahul" />
+
+          <label for="bAge">Age</label>
+          <input id="bAge" type="number" required placeholder="Ex: 25" />
+
+          <!-- Unique ID 'bWishText' for JS logic -->
+          <label for="bWishText">Enter wish text</label>
+          <input
+            type="text"
+            id="bWishText"
+            placeholder="Ex: Happy Birthday Bro! Party Hard 🎉"
+          />
+
+          <input type="submit" value="Generate Wish" class="primary-btn" />
+        </form>
+      </section>
+
+      <!-- ANNIVERSARY FORM -->
+      <section id="anniversaryScreen" class="screen glass">
+        <button class="close-btn" data-close>✖</button>
+        <h2>Anniversary</h2>
+        <p class="screen-sub">
+          Log the couple details to activate the anniversary reactor.
+        </p>
+
+        <form id="aForm" class="form-grid">
+          <label for="aName">Couple Name</label>
+          <input
+            id="aName"
+            type="text"
+            required
+            placeholder="Ex: Rahul & Priya"
+          />
+
+          <label for="aYears">Years Together</label>
+          <input id="aYears" type="number" required placeholder="Ex: 5" />
+
+          <!-- Unique ID 'aWishText' for JS logic -->
+          <label for="aWishText">Enter wish text</label>
+          <input
+            type="text"
+            id="aWishText"
+            placeholder="Ex: Happy Anniversary! Stay Blessed."
+          />
+
+          <input type="submit" value="Generate Wish" class="primary-btn" />
+        </form>
+      </section>
+
+      <!-- BIRTHDAY WISH OUTPUT -->
+      <section id="birthdayWishScreen" class="screen glass wish">
+        <button class="close-btn" data-close>✖</button>
+
+        <!-- 'wishName' will get the Glitch Effect -->
+        <h2 id="wishName"></h2>
+        <h3 class="wish-title">🎉 Happy Birthday 🎉</h3>
+
+        <div class="wish-panel">
+          <!-- 'bWishOutput' will get the Typewriter Effect -->
+          <p class="wish-text" id="bWishOutput">
+            Your birthday reactor is online.
+          </p>
+          <div class="wish-glow"></div>
+        </div>
+      </section>
+
+      <!-- ANNIVERSARY WISH OUTPUT -->
+      <section id="anniversaryWishScreen" class="screen glass wish">
+        <button class="close-btn" data-close>✖</button>
+
+        <!-- 'awishName' will get the Glitch Effect -->
+        <h2 id="awishName"></h2>
+        <h3 class="wish-title">💞 Happy Anniversary 💞</h3>
+
+        <div class="wish-panel">
+          <!-- 'aWishOutput' will get the Typewriter Effect -->
+          <p class="wish-text" id="aWishOutput">
+            Your bond just cleared another level.
+          </p>
+          <div class="wish-glow"></div>
+        </div>
+      </section>
+    </div>
+
+    <!-- SHARE BOX -->
+    <div
+      id="shareBox"
+      class="screen glass"
+      style="display: none; padding: 16px; margin-top: 20px"
+    >
+      <p style="font-size: 14px; color: #c3b9ff; margin-bottom: 8px">
+        Your shareable wish links:
+      </p>
+
+      <textarea
+        id="shareLink"
+        readonly
+        style="
+          width: 100%;
+          height: 100px;
+          padding: 10px;
+          border-radius: 12px;
+          background: rgba(10, 0, 40, 0.8);
+          color: white;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          font-size: 13px;
+          resize: none;
+        "
+      ></textarea>
+
+      <div style="margin-top: 10px">
+        <button id="copyBtn" class="copy-btn">Copy Link</button>
+
+        <!-- WhatsApp Button (Ready for JS) -->
+        <a id="dynamicWaBtn" class="wa-btn" target="_blank"
+          >Share on WhatsApp 💬</a
+        >
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 Celebration Reactor · Built for neon-grade emotions.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
